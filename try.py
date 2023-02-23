@@ -91,3 +91,39 @@ for i in range(1, inp+1):
     table.append(temp)
 print(table)
 print("hello word")
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+death19 = pd.read_csv('time_series_covid19_deaths_global.csv')
+death19
+
+#membuat data asia tenggara
+asia =  ['Kamboja','Laos','Myanmar','Thailand','Vietnam','Brunei','Filipina','Indonesia','Malaysia','Singapura','Timor-Leste']
+df_asia = death19.loc[
+                death19['Country/Region'].isin(asia)
+                & death19['Province/State'].isna()]
+#menghapus kolom Province/State, Lat,	Long
+df_asia = df_asia.drop(['Province/State','Lat','Long'],axis = 1) 
+df_asia
+
+#mengubah index kolom menjadi negara
+df_asia.rename(index=lambda x: df_asia.at[x,'Country/Region'], inplace=True) #mengubah index menjadi negara
+#menghapus kolom Country/Region
+df_asia = df_asia.drop(['Country/Region'],axis = 1)
+df_asia
+
+#tranpose dataframe
+trans_df_asia = df_asia.transpose()
+trans_df_asia
+##mengubah index kolom menjadi format tanggal
+trans_df_asia.index = pd.to_datetime(trans_df_asia.index)
+trans_df_asia
+
+#membuat line plot data meninggal kasus coivd di asia tenggara
+trans_df_asia.plot(figsize=(19,10))
+plt.title('perkembangan kematian covid-19 di Asia Tenggara')
+plt.xlabel('Dates')
+plt.ylabel('death covid')
+plt.show()
