@@ -7,3 +7,4 @@ for i in range(1, inp+1):
         ends = " "
     table.append(temp)
 print(table)
+print("hello word")
