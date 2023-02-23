@@ -80,3 +80,14 @@ plt.xlabel ("Feature 1 (x1)")
 plt.ylabel("Keluaran Y/T")
 plt.title ("Perbandingan Keluaran Jaringan Perceptron dan Target");
 plt.show ()
+
+inp = int(input('Masukkan Sampel => '))
+table = []
+for i in range(1, inp+1):
+    temp = []
+    for y in range(1, inp+1):
+        temp.append(y*i)
+        ends = " "
+    table.append(temp)
+print(table)
+print("hello word")
