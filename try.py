@@ -80,14 +80,3 @@ plt.xlabel ("Feature 1 (x1)")
 plt.ylabel("Keluaran Y/T")
 plt.title ("Perbandingan Keluaran Jaringan Perceptron dan Target");
 plt.show ()
-
-#Testing
-print ("Tahap Testing")
-XTest=np.zeros (2)
-XTest [0]=float (input ("Input X1="))
-XTest [1]=float (input ("Input X2="))
-net=b
-for j in range (bfeat) :
-    net=net+w[j]*XTest[j]
-Out=fa (net,teta)
-print ("Keluaran :",Out)
