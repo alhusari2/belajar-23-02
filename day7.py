@@ -1,2 +1,4 @@
-a = "check apatuh"
+
+a = "check aja"
+
 print(a)
