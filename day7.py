@@ -1,1 +1,2 @@
-print("check repository")
+a = "check apatuh"
+print(a)
